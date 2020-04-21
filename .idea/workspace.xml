@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4a99757-0927-4970-b6e0-56f0b000886f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/favicons.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/favicons.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_notebooks/2020-02-20-test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/_notebooks/2020-02-20-test.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_sass/minima/custom-styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_sass/minima/custom-styles.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_notebooks/2020-04-16-kaggle-tse-day1.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +13,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_includes/head.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_includes/custom-head.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -81,11 +74,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_sass/minima/custom-styles.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+            <state relative-caret-position="210">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_notebooks/2020-04-16-kaggle-tse-day1.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="1" />
             </state>
           </provider>
         </entry>
@@ -102,6 +104,7 @@
         <option value="$PROJECT_DIR$/_includes/favicons.html" />
         <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/_sass/minima/custom-styles.scss" />
+        <option value="$PROJECT_DIR$/_notebooks/2020-04-16-kaggle-tse-day1.ipynb" />
       </list>
     </option>
   </component>
@@ -124,23 +127,7 @@
             <path>
               <item name="huysnote" type="b2602c69:ProjectViewProjectNode" />
               <item name="huysnote" type="462c0819:PsiDirectoryNode" />
-              <item name="_pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="huysnote" type="b2602c69:ProjectViewProjectNode" />
-              <item name="huysnote" type="462c0819:PsiDirectoryNode" />
-              <item name="_plugins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="huysnote" type="b2602c69:ProjectViewProjectNode" />
-              <item name="huysnote" type="462c0819:PsiDirectoryNode" />
-              <item name="_sass" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="huysnote" type="b2602c69:ProjectViewProjectNode" />
-              <item name="huysnote" type="462c0819:PsiDirectoryNode" />
-              <item name="_sass" type="462c0819:PsiDirectoryNode" />
-              <item name="minima" type="462c0819:PsiDirectoryNode" />
+              <item name="_notebooks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="huysnote" type="b2602c69:ProjectViewProjectNode" />
@@ -211,7 +198,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Terminal" order="3" weight="0.32844934" />
+      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.32844934" />
     </layout>
   </component>
   <component name="editorHistoryManager">
@@ -326,8 +313,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_sass/minima/custom-styles.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+        <state relative-caret-position="210">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_notebooks/2020-04-16-kaggle-tse-day1.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="1" />
         </state>
       </provider>
     </entry>
