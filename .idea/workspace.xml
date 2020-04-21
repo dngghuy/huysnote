@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4a99757-0927-4970-b6e0-56f0b000886f" name="Default Changelist" comment="" />
+    <list default="true" id="a4a99757-0927-4970-b6e0-56f0b000886f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/_notebooks/2020-04-16-kaggle-tse-day1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/_notebooks/2020-04-16-kaggle-tse-day1.ipynb" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +53,27 @@
         <entry file="file://$PROJECT_DIR$/_notebooks/2020-04-16-kaggle-tse-day1.ipynb">
           <provider selected="true" editor-type-id="ipnb-editor">
             <state>
-              <selected id="2" />
+              <selected id="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_pages/about.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2020-01-14-test-markdown-post.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -83,8 +105,8 @@
         <option value="$PROJECT_DIR$/_includes/favicons.html" />
         <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/_sass/minima/custom-styles.scss" />
-        <option value="$PROJECT_DIR$/_notebooks/2020-04-16-kaggle-tse-day1.ipynb" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/_notebooks/2020-04-16-kaggle-tse-day1.ipynb" />
       </list>
     </option>
   </component>
@@ -117,7 +139,39 @@
             <path>
               <item name="huysnote" type="b2602c69:ProjectViewProjectNode" />
               <item name="huysnote" type="462c0819:PsiDirectoryNode" />
+              <item name="_pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huysnote" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huysnote" type="462c0819:PsiDirectoryNode" />
+              <item name="_posts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huysnote" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huysnote" type="462c0819:PsiDirectoryNode" />
+              <item name="_sass" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huysnote" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huysnote" type="462c0819:PsiDirectoryNode" />
+              <item name="_sass" type="462c0819:PsiDirectoryNode" />
+              <item name="minima" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huysnote" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huysnote" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huysnote" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huysnote" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="huysnote" type="b2602c69:ProjectViewProjectNode" />
+              <item name="huysnote" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="kaggle_tse" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="huysnote" type="b2602c69:ProjectViewProjectNode" />
@@ -288,13 +342,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_notebooks/2020-02-20-test.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -310,10 +357,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_pages/about.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2020-01-14-test-markdown-post.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_notebooks/2020-02-20-test.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_notebooks/2020-04-16-kaggle-tse-day1.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
-          <selected id="2" />
+          <selected id="1" />
         </state>
       </provider>
     </entry>
