@@ -3,11 +3,10 @@ layout: page
 title: About Me
 permalink: /about/
 ---
+{% include custom_img_modules.html image_path="../images/portrait.jpeg" title="Hi, I'm Huy." description="I graduated from International University - Vietnam National University, majoring in Applied Mathematics.
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+Currently, I am working as Data Scientist at [MTI Technology](https://www.linkedin.com/company/mti-technologyvn/). Here, I mainly focus on solutions for the current OCR problem.
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+My interest also lies in Reinforcement Learning, Deep Learning and their applications in Finance.
+" %}
 
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
