@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Kaggle Tweet Sentiment Extraction | Huy’s note</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Kaggle Tweet Sentiment Extraction" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="My journey to learn some NLP." />
+<meta property="og:description" content="My journey to learn some NLP." />
+<link rel="canonical" href="https://dngghuy.github.io/huysnote/kaggle/nlp/2020/04/15/kaggle-tse-day1.html" />
+<meta property="og:url" content="https://dngghuy.github.io/huysnote/kaggle/nlp/2020/04/15/kaggle-tse-day1.html" />
+<meta property="og:site_name" content="Huy’s note" />
+<meta property="og:image" content="https://dngghuy.github.io/huysnote/images/kaggle_tse/twitter.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-15T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-04-15T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://dngghuy.github.io/huysnote/kaggle/nlp/2020/04/15/kaggle-tse-day1.html"},"description":"My journey to learn some NLP.","image":"https://dngghuy.github.io/huysnote/images/kaggle_tse/twitter.png","@type":"BlogPosting","url":"https://dngghuy.github.io/huysnote/kaggle/nlp/2020/04/15/kaggle-tse-day1.html","headline":"Kaggle Tweet Sentiment Extraction","dateModified":"2020-04-15T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/huysnote/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://dngghuy.github.io/huysnote/feed.xml" title="Huy's note" /><link rel="shortcut icon" type="image/x-icon" href="/huysnote/images/favicon1.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Kaggle Tweet Sentiment Extraction | Huy’s note</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Kaggle Tweet Sentiment Extraction" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="My journey to learn some NLP." />
+<meta property="og:description" content="My journey to learn some NLP." />
+<link rel="canonical" href="https://dngghuy.github.io/huysnote/kaggle/nlp/2020/04/15/kaggle-tse-day1.html" />
+<meta property="og:url" content="https://dngghuy.github.io/huysnote/kaggle/nlp/2020/04/15/kaggle-tse-day1.html" />
+<meta property="og:site_name" content="Huy’s note" />
+<meta property="og:image" content="https://dngghuy.github.io/huysnote/images/kaggle_tse/twitter.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-15T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-04-15T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://dngghuy.github.io/huysnote/kaggle/nlp/2020/04/15/kaggle-tse-day1.html"},"description":"My journey to learn some NLP.","image":"https://dngghuy.github.io/huysnote/images/kaggle_tse/twitter.png","@type":"BlogPosting","url":"https://dngghuy.github.io/huysnote/kaggle/nlp/2020/04/15/kaggle-tse-day1.html","headline":"Kaggle Tweet Sentiment Extraction","dateModified":"2020-04-15T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://dngghuy.github.io/huysnote/feed.xml" title="Huy's note" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/huysnote/">Huy&#39;s note</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/huysnote/about/">About Me</a><a class="page-link" href="/huysnote/search/">Search</a><a class="page-link" href="/huysnote/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Kaggle Tweet Sentiment Extraction</h1><p class="page-description">My journey to learn some NLP.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-04-15T00:00:00-05:00" itemprop="datePublished">
+        Apr 15, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/huysnote/categories/#kaggle">kaggle</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/huysnote/categories/#nlp">nlp</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Intro">Intro </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#About-this-competition">About this competition </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#A-first-glance-at-data">A first glance at data </a></li>
+<li class="toc-entry toc-h1"><a href="#My-approaches">My approaches </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Viewing-the-problem">Viewing the problem </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#The-Question-answering-problem">The Question-answering problem </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Models">Models </a></li>
+<li class="toc-entry toc-h2"><a href="#Input-data">Input data </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#References">References </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-04-15-kaggle-tse-day1.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Intro">
+<a class="anchor" href="#Intro" aria-hidden="true"><span class="octicon octicon-link"></span></a>Intro<a class="anchor-link" href="#Intro"> </a>
+</h1>
+<p>Here lies my notes about my solution for the <a href="https://www.kaggle.com/c/tweet-sentiment-extraction">Kaggle Twitter Sentiment Extraction competition</a>.</p>
+<p>First of all, I am still a novice in the field of natural language processing. 
+This means that all of these NLP concepts, and even Deep Learning approaches to this fields, are challenging for me to understand and apply. 
+Hence, if my approaches somehow become wrong, please give me a notification via my personal email: <a href="huygdng@gmail.com">huygdng@gmail.com</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="About-this-competition">
+<a class="anchor" href="#About-this-competition" aria-hidden="true"><span class="octicon octicon-link"></span></a>About this competition<a class="anchor-link" href="#About-this-competition"> </a>
+</h2>
+<p>Now let's go to the competition's description. We know that, Sentiment classification is a well-known problem in NLP. 
+Given a sentence (a tweet, a line from one book, etc.), our algorithm should be able to tell the "attitude" of that input. 
+For example, given a sentence like this:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>Kaggle is fun!</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The above sentence is full of "positive" thought, and if I have a proper sentiment classifier, I will expect it to
+return "positive" as the "attitude" of that sentence as well.</p>
+<p>Now, back to the competition. The challenge in this competition is not to classify the sentiment of tweets, but to <strong>pick out</strong> parts that reflect the sentiment of those tweets.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is from the original description of the competition:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>Capturing sentiment in language is important in these times where decisions and reactions are created and updated in seconds.
+But, which words actually lead to the sentiment description?
+In this competition you will need to pick out the part of the tweet (word or phrase) that reflects the sentiment.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For the above positive example, it is expected from a proper sentiment extraction model to point out the term 'fun!' as the cause of the sentence's positiveness. We can observe that, in this example, not only the word 'fun' is marked as the positive term, but its corresponding punctuation as well. This phenomenon affects the choice of approaches, as we will see later on.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="A-first-glance-at-data">
+<a class="anchor" href="#A-first-glance-at-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>A first glance at data<a class="anchor-link" href="#A-first-glance-at-data"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is some samples from the training dataset:</p>
+<p><img src="/huysnote/images/copied_from_nb/../images/kaggle_tse/kaggle_sample.png" alt="kaggle-sample"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So, the training data does give us a lot information:</p>
+<ul>
+<li>
+<p>The information that we could use for our training includes 'text' and 'sentiment'.</p>
+</li>
+<li>
+<p>The predicion we would make, is the 'selected_text' column.</p>
+</li>
+<li>
+<p>We have 3 classes for sentiment: positive, negative and neutral.</p>
+</li>
+<li>
+<p>About 'text' column: The format is quite ...diverge. There are incomplete sentences ('is back home ... '), sentences with some emoticon ('... &lt;3 &lt;3'), sentences with some typos ('Hes just not ...'), and more.</p>
+</li>
+<li>
+<p>The sentiment distribution is quite good: neutral 40%, positive 31% and negative 28%.</p>
+</li>
+<li>
+<p>The selected text contains both the word, punctuation and also some emoticon as well.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Listed below are some more basic analysis on this data. We first observe that, the sentiment distribution of training dataset and test dataset are equivalent.</p>
+<p><img src="/huysnote/images/copied_from_nb/../images/kaggle_tse/sentiment_dist.png" alt="kaggle-eda1"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our task in this competition, once again, is to find correct pieces of text that emphasize the sentiment of the tweet. Hence, observing the distribution of word counts in both the original tweet the selected tweet (the target) in each sentiment class is a good idea.</p>
+<p><img src="/huysnote/images/copied_from_nb/../images/kaggle_tse/text_length_comparison1.png" alt="kaggle-eda2"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Also the corresponding histogram of word counts.</p>
+<p><img src="/huysnote/images/copied_from_nb/../images/kaggle_tse/text_length_comparison2.png" alt="kaggle-eda1"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Among the 3 sentiment classes, the 'neutral' class has one interesting characteristics: The length of input tweet and target piece of text are almost the same. Hence, we can make use of it, as a simple heuristic post-process rule.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="My-approaches">
+<a class="anchor" href="#My-approaches" aria-hidden="true"><span class="octicon octicon-link"></span></a>My approaches<a class="anchor-link" href="#My-approaches"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Viewing-the-problem">
+<a class="anchor" href="#Viewing-the-problem" aria-hidden="true"><span class="octicon octicon-link"></span></a>Viewing the problem<a class="anchor-link" href="#Viewing-the-problem"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This problem can be treated as <strong>Token classification</strong> problem (i.e., Name Entity Recognition, Part-of-Speech, ...) , or <strong>Question-answering</strong> problem.</p>
+<p>However, when working with this problem as the token classification problem, we do not include punctuations as part of the model's results. Moreover, modifying token with punctuations is not a good idea - not only does that approach expand the vocabulary (which goes along with time and computational resources to learn the language model), but it also does not guarantee that we can learn the similarity between word and word with tokens. Hence, this approach is not optimal.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Question-answering-problem">
+<a class="anchor" href="#The-Question-answering-problem" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Question-answering problem<a class="anchor-link" href="#The-Question-answering-problem"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I formulated this task as question answering problem: given a question and a context, it is expected that the model should find acceptable  the 
+given a question and a context, we train a transformer model to find the answer in the text column (the context).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Models">
+<a class="anchor" href="#Models" aria-hidden="true"><span class="octicon octicon-link"></span></a>Models<a class="anchor-link" href="#Models"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Up to now, I have tried some model architectures:</p>
+<ul>
+<li>
+<p>The pre-trained BERT[<a href="https://arxiv.org/abs/1810.04805">1</a>] with custom header.</p>
+</li>
+<li>
+<p>The pre-trained Electra[<a href="https://arxiv.org/abs/2003.10555">2</a>] with custom header.</p>
+</li>
+<li>
+<p>The pre-trained RoBERTa[<a href="https://arxiv.org/abs/1907.11692">3</a>] with custom header</p>
+</li>
+</ul>
+<p>The custom header includes 2 Linear layers, with ReLU and Dropout for the first linear layer. The header's weights are initialized using Kaiming He normal initialization [<a href="https://arxiv.org/abs/1502.01852">4</a>].</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Input-data">
+<a class="anchor" href="#Input-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Input data<a class="anchor-link" href="#Input-data"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="References">
+<a class="anchor" href="#References" aria-hidden="true"><span class="octicon octicon-link"></span></a>References<a class="anchor-link" href="#References"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[1] Devlin, J., Chang, M.W., Lee, K. and Toutanova, K., 2018. Bert: Pre-training of deep bidirectional transformers for language understanding. <em>arXiv preprint arXiv:1810.04805</em>.</p>
+<p>[2] Clark, K., Luong, M.T., Le, Q.V. and Manning, C.D., 2020. Electra: Pre-training text encoders as discriminators rather than generators. <em>arXiv preprint arXiv:2003.10555</em>.</p>
+<p>[3] Liu, Y., Ott, M., Goyal, N., Du, J., Joshi, M., Chen, D., Levy, O., Lewis, M., Zettlemoyer, L. and Stoyanov, V., 2019. Roberta: A robustly optimized bert pretraining approach. <em>arXiv preprint arXiv:1907.11692</em>.</p>
+<p>[4] He, K., Zhang, X., Ren, S. and Sun, J., 2015. Delving deep into rectifiers: Surpassing human-level performance on imagenet classification. <em>In Proceedings of the IEEE international conference on computer vision</em> (pp. 1026-1034).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="dngghuy/huysnote"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/huysnote/kaggle/nlp/2020/04/15/kaggle-tse-day1.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/huysnote/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/huysnote/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/huysnote/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>I write about many little things: my naive notes for some naive Machine - learning problem,... even my favorite Nintendo Switch games!</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/dngghuy" title="dngghuy"><svg class="svg-icon grey"><use xlink:href="/huysnote/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
